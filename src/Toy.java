@@ -2,13 +2,20 @@ public class Toy {
     private int id;
     private String name;
     private int quantity;
-    private double frequency;
+    private double chance;
 
-    public Toy(int id, String name, int quantity, double frequency) {
-        this.id = id;
+    private static Integer idCounter = 0;
+
+    public static synchronized int createID()
+    {
+        return idCounter++;
+    }
+
+    public Toy(int id, String name, int quantity, double chance) {
+        this.id = createID();
         this.name = name;
         this.quantity = quantity;
-        this.frequency = frequency;
+        this.chance = chance;
     }
 
     public int getId() {
@@ -23,15 +30,15 @@ public class Toy {
         return quantity;
     }
 
-    public double getFrequency() {
-        return frequency;
+    public double getСhance() {
+        return chance;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public void setFrequency(double frequency) {
-        this.frequency = frequency;
+    public void setСhance(double chance) {
+        this.chance = chance;
     }
 }
