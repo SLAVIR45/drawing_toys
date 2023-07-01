@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Shop
@@ -34,6 +36,12 @@ public class Shop
         }
     }
 
+    public void viewCollection (ArrayList<Toy> collection) {
+        for (Toy toy : collection) {
+            System.out.println(toy);
+        }
+    }
+
 
     public void prizeSelection()
     {
@@ -42,6 +50,24 @@ public class Shop
             if (random < toy.getСhance()) {
                 collectionPrizes.add(toy);
             }
+        }
+    }
+
+
+    public void getPrize() {
+        if (!collectionPrizes.isEmpty()) {
+            Toy prizeToy = collectionPrizes.remove(0);
+            prizeToy.setQuantity(prizeToy.getQuantity() - 1);
+
+            try {
+                FileWriter writer = new FileWriter(prizeFile, true);
+                writer.write(prizeToy.getName() + "\n");
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("Ошибка при записи в файл игрушки");
+            }
+        } else {
+            System.out.println("Все игрушки кончились");
         }
     }
 

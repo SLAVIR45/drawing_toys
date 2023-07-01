@@ -41,4 +41,9 @@ public class Toy {
     public void setСhance(double chance) {
         this.chance = chance;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + this.id + "Наименование: " + this.name + "Колличество: ";
+    }
 }
