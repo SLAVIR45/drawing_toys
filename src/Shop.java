@@ -36,7 +36,15 @@ public class Shop
         }
     }
 
-    public void viewCollection (ArrayList<Toy> collection) {
+    public void viewCollectionToy () {
+       ArrayList<Toy> collection = this.toyСollection;
+        for (Toy toy : collection) {
+            System.out.println(toy);
+        }
+    }
+
+    public void viewCollectionPrize () {
+        ArrayList<Toy> collection = this.collectionPrizes;
         for (Toy toy : collection) {
             System.out.println(toy);
         }

@@ -44,6 +44,6 @@ public class Toy {
 
     @Override
     public String toString() {
-        return "ID: " + this.id + "Наименование: " + this.name + "Колличество: ";
+        return "ID: " + getId() + " Наименование: " + getName() + " Колличество: " + getQuantity();
     }
 }
